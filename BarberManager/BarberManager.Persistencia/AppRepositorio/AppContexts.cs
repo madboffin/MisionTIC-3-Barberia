@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using BarberManager.Dominio;
 
 namespace BarberManager.Persistencia.AppRepositorio
 {
     public class AppContexts : DbContext
     {
+       
 protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
