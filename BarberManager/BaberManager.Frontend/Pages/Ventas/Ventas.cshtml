@@ -1,0 +1,45 @@
+﻿@page
+@model BarberManager.Frontend.VentasModel
+@{
+    ViewData["Title"] = "Registro de Ventas" ;
+    <div class ="container">
+        <div class ="row">
+            <div class ="col"  style="border: ;1px solid blue">
+            </div>
+            </div>
+    </div>
+<h1>Registro de ventas</h1>
+    <br>
+  <form id="formulario1" action="/Proyecto1/" method="post">
+    <label for="hora">Seleccione la hora del servicio</label> <input type="time" id="hora" name="hora" />
+    <br>
+    <label for="servicio">Seleccione el tipo de servicio:</label><br>
+
+    <input type="checkbox" id="serv1" />Corte normal
+    <input type="checkbox" id="serv2">Corte y barba
+    <input type="checkbox" id="serv3">Barba con diseÃƒÂ±o<br>
+    <input type="checkbox" id="serv4">Tintura
+    <input type="checkbox" id="serv5">Corte especial y tinte<br>
+    <input type="checkbox" id="serv6">Lavado
+    <br>
+
+    <p>Venta actual: <output id="venta" for="venta"></output></p>
+
+
+    <label for="servicio">Seleccione el Barbero</label>
+    <select name="barbero" id="barbero">
+      <optgroup label="Seleccione barbero">
+        <option value="barbero1">Generico</option>
+        <option value="barbero2">Andres</option>
+        <option value="barbero3">Maicol</option>
+        <option value="barbero4">Yeison</option>
+        <option value="barbero5">Dayan</option>
+        <option value="barbero6">Sandra</option>
+      </optgroup>
+    </select><br>
+    <button type="submit">Registar</button>
+    <button type="reset">Limpiar</button>
+  </form>
+
+
+}
