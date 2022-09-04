@@ -9,6 +9,12 @@ namespace BarberManager.Persistencia.AppRepositorio
 {
     public class AppContexts : DbContext
     {
+        public DbSet<Barbero> Barbero { get; set; }
+        public DbSet<DetalleServicio> DetalleServicio { get; set; }
+        public DbSet<Rol> Rol { get; set; }
+        public DbSet<Servicio> Sevicio { get; set; }
+        public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<Venta> Venta { get; set; }
        
 protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
