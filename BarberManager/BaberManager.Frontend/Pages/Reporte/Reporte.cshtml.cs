@@ -1,0 +1,12 @@
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+
+namespace BaberManager.Frontent
+{
+    public class ReporteModel : PageModel
+    {
+        public void OnGet()
+        {
+        }
+    }
+}
