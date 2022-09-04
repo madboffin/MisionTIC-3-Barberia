@@ -1,0 +1,87 @@
+#Pasos a seguir para crear una solución y proyectos asociados
+
+---------------------------------------------
+Solución y proyectos
+---------------------------------------------
+cd "C:\Users\zambr\Documents\Mintic\UCaldas\Contenido\3. Desarrollo de software\ProyectoCSharp"
+
+-Ayuda al crear
+
+dotnet new -h
+
+-Crear solucion
+dotnet new sln -o HospiEnCasa.App
+cd HostiEnCasa.App
+
+-Crear proyecto
+dotnet new classlib -o HospiEnCasa.App.Persistencia
+dotnet new classlib -o HospiEnCasa.App.Dominio
+dotnet new webapi -o HospiEnCasa.App.Servicios
+dotnet new razor -o HospiEnCasa.App.Presentacion
+dotnet new console -o HospiEnCasa.App.Consola
+
+cd ..
+tree
+
+---------------------------------------------
+- ORM - Entity Framework
+---------------------------------------------
+
+-Instalación global de equipo
+
+dotnet tool list
+dotnet tool install --global dotnet-ef --version 5.0.0
+dotnet tool update --global dotnet-ef --version 5.0.0
+
+-Instalación proyecto
+
+dotnet add package Microsoft.EntityFrameworkCore --version 5.0.0
+dotnet add package Microsoft.EntityFrameworkCore.Tools --version 5.0.0
+dotnet add package Microsoft.EntityFrameworkCore.Design --version 5.0.0
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 5.0.0
+
+-Utilización
+
+DBContext
+
+
+- Realizar referencias a proyectos
+dotnet add reference ..\HospiEnCasa.App.Dominio\
+
+- Compilar solución o proyecto
+
+dotnet build
+
+---------------------------------------------
+- Crear una migración aBD
+---------------------------------------------
+
+-Proyecto front o consola debe tener instalado Entity Framework
+
+Ejecutar los comandos de instalación ef en el proyecto
+
+-Persistencia
+
+-crear el script para creación de tablas
+dotnet ef migrations add Inicial --startup-project ..\HospiEnCasa.App.Consola\
+-crear base de datos
+dotnet ef database update --startup-project ..\HospiEnCasa.App.Consola\
+---------------------------------------------
+- Proyecto de prueba de conexión a BD
+---------------------------------------------
+
+dotnet new console -o HospiEnCasa.App.Consola
+dotnet add reference ..\HospiEnCasa.App.Dominio\
+dotnet add reference ..\HostiEnCasa.App.Persistencia\
+
+---------------------------------------------
+- Sql server
+---------------------------------------------
+sa
+ucaldas123
+
+dotnet ef dbcontext scaffold "Server=LAPTOP-5I9PKCH7; Database=HospiEnCasa; Integrated Security=True;" Microsoft.EntityFrameworkCore.SqlServer -o Data
+dotnet ef dbcontext scaffold "Server=20.168.13.51; Database=barberia; user=sa; password=P3g4sus.2022*;" Microsoft.EntityFrameworkCore.SqlServer -o Data
+
+para crear pagina de razor 
+dotnet new Page -na BaberManager.Frontent -o .\Pages\Login
