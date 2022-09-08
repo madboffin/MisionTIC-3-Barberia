@@ -13,10 +13,6 @@
   --error-hsl: 0, 60%, 50%;
 }
 
-html {
-  font-size: 14px;
-}
-
 @media (min-width: 768px) {
   html {
     font-size: 16px;
@@ -26,15 +22,21 @@ html {
 html {
   position: relative;
   min-height: 100%;
+  font-size: 14px;
+}
+
+header{
+  color: red;
 }
 
 body {
   margin-bottom: 60px;
   margin: 0;
+  background-image: url("../image/barber_big.png");
+  background-color: black;
 }
 
 .fullscreen-container {
-  background-image: url("./barberia2.jpg");
   height: 100vh;
   width: 100vw;
   background-size: cover;
@@ -53,6 +55,7 @@ body {
   max-width: 600px;
   min-width: 200px;
   border-radius: 20px;
+  border-width: 1px;
 }
 
 .login-title {
@@ -115,7 +118,6 @@ body {
 .input-group.error .msg {
   display: block;
 }
-
 
 .input-group.success .msg {
   color: hsl(var(--success-hsl));
