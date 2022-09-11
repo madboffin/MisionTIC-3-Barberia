@@ -14,48 +14,48 @@ namespace BarberManager.Persistencia.AppRepositorio
             this.appContexts = appContexts;
         }
 
-        public int Actualizar(Barbero obj)
+        public Barbero Actualizar(Barbero obj)
         {
-            int result = 0;
-            var barberoEncontrado = appContexts.Barbero.FirstOrDefault(b => b.Id == obj.Id);
-            if (barberoEncontrado != null){
+            var barberoEncontrado = Buscar(obj);
+            if (barberoEncontrado != null)
+            {
                 barberoEncontrado.Id = obj.Id;
                 barberoEncontrado.TipoDocumento = obj.TipoDocumento;
                 barberoEncontrado.Documento = obj.Documento;
                 barberoEncontrado.Nombre = obj.Nombre;
                 barberoEncontrado.Telefono = obj.Telefono;
                 barberoEncontrado.Correo = obj.Correo;
-                barberoEncontrado.Id_usuario = obj.Id_usuario;
-                result = appContexts.SaveChanges();
+                barberoEncontrado.Usuario = obj.Usuario;
+                appContexts.SaveChanges();
             }
-            return result;
+            return barberoEncontrado;
         }
 
-        public int Adicionar(Barbero obj)
+        public Barbero Adicionar(Barbero obj)
         {
-            var barbero = appContexts.Barbero.Add(obj);
-            int result = appContexts.SaveChanges();
-            return result;
+            var barbero = appContexts.Barberos.Add(obj);
+            appContexts.SaveChanges();
+            return barbero.Entity;
         }
 
         public Barbero Buscar(Barbero obj)
         {
-            return appContexts.Barbero.FirstOrDefault(b => b.Id == obj.Id);
+            return appContexts.Barberos.FirstOrDefault(b => b.Id == obj.Id);
         }
 
         public IEnumerable<Barbero> Consultar()
         {
-            return appContexts.Barbero;
+            return appContexts.Barberos;
         }
 
         public int Eliminar(Barbero obj)
         {
             int result = 0;
-            var barberoEncontrado = appContexts.Barbero.FirstOrDefault(b => b.Id == obj.Id);
+            var barberoEncontrado = Buscar(obj);
             if (barberoEncontrado == null)
                 return result;
-            appContexts.Barbero.Remove(barberoEncontrado);
-            appContexts.SaveChanges();
+            appContexts.Barberos.Remove(barberoEncontrado);
+            result = appContexts.SaveChanges();
             return result;
         }
     }
