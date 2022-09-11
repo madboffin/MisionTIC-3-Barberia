@@ -21,8 +21,8 @@ protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder
-               .UseSqlServer("Server=20.168.13.51; Database=barberia; user=sa; password=P3g4sus.2022*;");
-               // .UseSqlServer("Server=LAPTOP-5I9PKCH7; Database=HospiEnCasa; Integrated Security=True;") ;
+               //.UseSqlServer("Server=20.168.13.51; Database=barberia; user=sa; password=P3g4sus.2022*;");
+               .UseSqlServer("Server=LAPTOP-5I9PKCH7; Database=HospiEnCasa; Integrated Security=True;") ;
             }
         }
 

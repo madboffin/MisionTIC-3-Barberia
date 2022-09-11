@@ -2,15 +2,12 @@ using System;
 namespace BarberManager.Dominio
 {
     public class Barbero{
-        int Id {get;set;}
-        string TipoDocumento {get;set;}
-        string Documento {get;set;}
-        string Nombre {get;set;}
-        string Telefono {get;set;}
-        string Correo {get;set;}        
-        Usuario Id_usuario {get;set;}
-        
-        
-      
+        public int Id { get; set; }
+        public string TipoDocumento {get;set;}
+        public string Documento {get;set;}
+        public string Nombre {get;set;}
+        public string Telefono {get;set;}
+        public string Correo {get;set;}        
+        public Usuario Id_usuario {get;set;}
     }
 }
