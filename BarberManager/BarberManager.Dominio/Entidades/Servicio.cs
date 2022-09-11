@@ -1,10 +1,10 @@
 using System;
 namespace BarberManager.Dominio
 {
-    public class Servicio{
-        int Id {get;set;}
-        string Nombre {get;set;}
-        int Precio {get;set;}
-      
+    public class Servicio
+    {
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+        public int Precio { get; set; }
     }
 }

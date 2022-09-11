@@ -1,0 +1,22 @@
+body {
+    margin-bottom: 60px;
+    background-image: url(image/barber_degradado.png);
+  }
+
+.negro{
+  color: #000000;
+}
+.marron{
+  color: #4A2E09;
+}
+.blanco{
+  color: #ffffff;
+}
+.crema{
+  color: #FEEDB1;
+}
+.naranja{
+  color: #E09F0B;
+}
+
+  

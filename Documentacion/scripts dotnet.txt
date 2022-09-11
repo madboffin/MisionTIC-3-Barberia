@@ -6,7 +6,6 @@ Solución y proyectos
 cd "C:\Users\zambr\Documents\Mintic\UCaldas\Contenido\3. Desarrollo de software\ProyectoCSharp"
 
 -Ayuda al crear
-
 dotnet new -h
 
 -Crear solucion
@@ -22,7 +21,6 @@ dotnet new console -o HospiEnCasa.App.Consola
 
 cd ..
 tree
-
 ---------------------------------------------
 - ORM - Entity Framework
 ---------------------------------------------
@@ -63,9 +61,9 @@ Ejecutar los comandos de instalación ef en el proyecto
 -Persistencia
 
 -crear el script para creación de tablas
-dotnet ef migrations add Inicial --startup-project ..\HospiEnCasa.App.Consola\
+dotnet ef migrations add Inicial --startup-project ..\BarberManager.Consola\
 -crear base de datos
-dotnet ef database update --startup-project ..\HospiEnCasa.App.Consola\
+dotnet ef database update --startup-project ..\BarberManager.Consola\
 ---------------------------------------------
 - Proyecto de prueba de conexión a BD
 ---------------------------------------------

@@ -2,26 +2,29 @@
 @model BarberManager.Frontend.VentasModel
 @{
     ViewData["Title"] = "Registro de Ventas" ;
+    
   <link href="https://fonts.googleapis.com/css2?family=Facit" rel="stylesheet" type="text/css">
 
 <h1 align="center" >Registro de ventas</h1>
     <br>
-  <form id="formulario1" action="/Proyecto1/" method="post">
+  <form id="formulario1" action="/Proyecto1/" method="post" >
+  <div class="form-group"> 
     <label for="hora">Seleccione la hora del servicio</label> <input type="time" id="hora" name="hora" />
     <br><br>
     <label for="servicio">Seleccione el tipo de servicio:</label><br><br>
-
-    <input type="checkbox" id="serv1" />Corte normal
-    <input type="checkbox" id="serv2">Corte y barba
-    <input type="checkbox" id="serv3">Barba con diseño<br>
-    <input type="checkbox" id="serv4">Tintura
-    <input type="checkbox" id="serv5">Corte especial y tinte<br>
-    <input type="checkbox" id="serv6">Lavado
+    <div class="form-group"></div>
+    <input type="checkbox" id="serv1" /> Corte normal
+    <input type="checkbox" id="serv2"> Corte y barba
+    <input type="checkbox" id="serv3"> Barba con diseño<br>
+    <input type="checkbox" id="serv4"> Tintura
+    <input type="checkbox" id="serv5"> Corte especial y tinte<br>
+    <input type="checkbox" id="serv6"> Lavado
     <br><br>
-
+    </div>
+    <div class="form-group">
     <p>Venta actual: <output id="venta" for="venta"></output></p>
-
-
+    </div>
+    <div class="form-group">
     <label for="servicio">Seleccione el Barbero</label>
     <select name="barbero" id="barbero">
       <optgroup label="Seleccione barbero">
@@ -33,8 +36,11 @@
         <option value="barbero6">Sandra</option>
       </optgroup>
     </select><br><br><br>
+    </div>
+    <div class="mx-auto">
     <button type="submit"class="btn btn-primary">Registrar</button>
     <button type="reset"class="btn btn-primary">Limpiar</button>
+    </div>
   </form>
 
 

@@ -1,14 +1,13 @@
 using System;
 namespace BarberManager.Dominio
 {
-    public class Venta{
-        int Id {get;set;}
-        DateTime Fecha {get;set;}
-        int Valor {get;set;}
-        Barbero Id_barberos {get;set;}
-        Usuario Id_usuarios {get;set;}
-        DetalleServicio Id_detalleServicio {get;set;}
-        
-      
+    public class Venta
+    {
+        public int Id { get; set; }
+        public int Valor { get; set; }
+        public DateTime Fecha { get; set; }
+        public Barbero Barbero { get; set; }
+        public Usuario Usuario { get; set; }
+        public DetalleServicio DetalleServicio { get; set; }
     }
 }

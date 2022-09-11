@@ -1,14 +1,13 @@
 using System;
 namespace BarberManager.Dominio
 {
-    public class Usuario{
-        int Id {get;set;}
-        string Nombre {get;set;}
-        string Contrasena {get;set;}
-        Rol id_rol {get;set;}
-        int Estado {get;set;}
-        string Correo {get;set;}
-        
-      
+    public class Usuario
+    {
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+        public string Contrasena { get; set; }
+        public Rol Rol { get; set; }
+        public int Estado { get; set; }
+        public string Correo { get; set; }
     }
 }
