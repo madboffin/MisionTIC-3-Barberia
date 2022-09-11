@@ -1,47 +1,57 @@
 ﻿@page
 @model BaberManager.Frontend.ReporteModel
 @{
-ViewData["Title"] = "Reporte de Ventas" ;
-<h1 align="center" >Reporte de Ventas</h1>
-    <br>
+    ViewData["Title"] = "Reporte de Ventas" ;
+
+<div class="v-container">
+
+    <h1 id="regis">Reporte de Ventas</h1>
+        <br>
 
         <form id="formulario2" action="/Proyecto1/" method="post" >
 
             <br>
-            <label for="inicio">Fecha de inicio:</label>
+            <div class="formulario-interno">
+                <label for="inicio">Fecha de inicio:</label>
 
-            <div class="form-group">
-                <input type="date" id="inicio" name="inicio" value="2022-01-01" min="2022-01-01" max="2108-12-31">
-            </div>
-
-            <br>
-            <label for="fin">Fecha final:</label>
-         
                 <div class="form-group">
-                    <input type="date" id="fin" name="fin" value="2022-01-01" min="2022-01-01" max="2108-12-31">
+                    <input type="date" id="inicio" name="inicio" value="2022-01-01" min="2022-01-01" max="2108-12-31">
                 </div>
 
-                <label for="barbero">Barbero</label>
-                <select name="barberos" id="barberos">
-                    <optgroup label="Seleccione barbero">
-                        <option value="">--------</option>
-                        <option value="barbero2">Andres</option>
-                        <option value="barbero3">Maicol</option>
-                        <option value="barbero4">Yeison</option>
-                        <option value="barbero5">Dayan</option>
-                        <option value="barbero6">Sandra</option>
-                    </optgroup>
-                </select><br><br><br>
+                <br>
+                <label for="fin">Fecha final:</label>
+            
+                    <div class="form-group">
+                        <input type="date" id="fin" name="fin" value="2022-01-01" min="2022-01-01" max="2108-12-31">
+                    </div>
+                    <br>
+                    <br>
+
+                    <label for="barbero">Barbero</label>
+                    <select name="barberos" id="barberos">
+                        <optgroup label="Seleccione barbero">
+                            <option value="">Seleccione</option>
+                            <option value="barbero2">Andres</option>
+                            <option value="barbero3">Maicol</option>
+                            <option value="barbero4">Yeison</option>
+                            <option value="barbero5">Dayan</option>
+                            <option value="barbero6">Sandra</option>
+                        </optgroup>
+                    </select><br><br><br>
 
 
-                <p>
+                    <p>
 
-                    <button type="submit" class="btn btn-primary">Generar</button>
-                    <button type="reset" class="btn btn-primary">Limpiar</button>
+                        <button type="submit" class="btn btn-primary">Generar</button>
+                        <button type="reset" class="btn btn-primary">Limpiar</button>
 
-                </p>
+                    </p>
+                    <br>
+                    <br>
+                </div>
 
             </form>
+</div>
    
 
 
