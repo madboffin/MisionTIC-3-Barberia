@@ -8,5 +8,41 @@
 
     <h1 id="regis">Listado de Barberos</h1>
     </div>
+
+    <h1>Listado de Barberos</h1>
+            <table class="table" id="tablaBarberos">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Número teléfonico</th>
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach( var Barbero in ListadoBarbero){
+                        <tr>
+                            <td>@Barbero.Id</td>
+                            <td>@Barbero.Nombre</td>
+                            <td>@Barbero.Apellidos</td>
+                            <td>@Barbero.NumeroTelefono</td>
+                       
+                            <td>
+                                
+
+                                
+                                <a class="btn btn-primary" id="editar">
+                                    <i class="far fa-edit"></i>Editar
+                                </a>
+                                <a class="btn btn-secondary">
+                                    <i class="far fa-remove"></i>Eliminar
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
 </div>
+
 }
