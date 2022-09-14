@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BarberManager.Dominio;
 
-namespace BarberManager.Persistencia.AppRepositorio
+namespace BarberManager.Persistencia
 {
     public class RepositorioDetalleServicio : ICRUD<DetalleServicio>
     {
