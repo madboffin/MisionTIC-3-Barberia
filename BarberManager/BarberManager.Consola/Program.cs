@@ -12,8 +12,10 @@ namespace BarberManager.Consola // Note: actual namespace depends on the project
         {
             Console.WriteLine("Hello World!");
             var resultadoRol = _repositorioRol.Consultar();
-            foreach (var rol in resultadoRol){
-                Console.WriteLine(rol);
+            foreach (var rol in resultadoRol)
+            {
+                Console.Write(rol.Id + " ");
+                Console.WriteLine(rol.Nombre);
             }
         }
     }
