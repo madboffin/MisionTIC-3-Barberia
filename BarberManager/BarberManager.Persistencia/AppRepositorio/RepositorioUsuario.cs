@@ -6,10 +6,10 @@ using BarberManager.Dominio;
 
 namespace BarberManager.Persistencia
 {
-    public class RespositorioUsuario : ICRUD<Usuario>
+    public class RepositorioUsuario : ICRUD<Usuario>
     {
         private readonly AppContexts appContexts;
-        public RespositorioUsuario(AppContexts appContexts)
+        public RepositorioUsuario(AppContexts appContexts)
         {
             this.appContexts = appContexts;
         }

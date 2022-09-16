@@ -1,27 +1,77 @@
 ﻿@page
 @model BaberManager.Frontent.ServiciosModel
 @{
+    @* ViewData["script"];*@
+    ViewData["script"] = "servicios.js";
+    Layout = "_LayoutNotAdmin";
 }
+<div class="container bg-white border border-secondary rounded-25">
+    <div class="row">
+        <div class="col-md-2 col-sm-12"></div>
+        <div class="col-md-8 col-sm-12">
+            <h2>Listado Servicios</h2>
+            <table class="table" id="tableServicios">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Editar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var rol in Model.listaRoles)
+                    {
+                        <tr>
+                            <td>@rol.Id</td>
+                            <td>@rol.Nombre</td>
+                            <td>
+                                <a asp-page="../Servicios/Servicioseditar" asp-route-Id="@rol.Id">
+                                    <i class="far fa-edit" style="font-size:25px; color:black"></i>
+                                </a>
+                                <a asp-page="../Servicios/Servicioseditar" asp-route-Id="@rol.Id">
+                                    <i class="far fa-trash-alt" style="font-size:25px; color:black"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-2 col-sm-12"></div>
+    </div>
 
-<h1>Listado Servicios</h1>
-<table class="table" id="tableServicios">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Nombre</th>
-            <th>Precio</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th>1</th>
-            <th>Corte cabello</th>
-            <th>12000</th>
-        </tr>
-        <tr>
-            <th>2</th>
-            <th>Corte barba</th>
-            <th>16000</th>
-        </tr>
-    </tbody>
-</table>
+</div>
+<div class="col-md-2 col-sm-23" id="capa">
+    <h5>texto prueba</h5>
+</div>
+
+<h1>Test</h1>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+</button>
+
+<!-- Modal Registrar-->
+<div class="modal fade" id="modalRegistrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalRegistrarLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<h1>Fin de test</h1>

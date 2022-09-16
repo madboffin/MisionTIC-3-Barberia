@@ -13,11 +13,11 @@ dotnet new sln -o HospiEnCasa.App
 cd HostiEnCasa.App
 
 -Crear proyecto
-dotnet new classlib -o HospiEnCasa.App.Persistencia
-dotnet new classlib -o HospiEnCasa.App.Dominio
-dotnet new webapi -o HospiEnCasa.App.Servicios
-dotnet new razor -o HospiEnCasa.App.Presentacion
-dotnet new console -o HospiEnCasa.App.Consola
+dotnet new classlib -o BarberManager.Persistencia
+dotnet new classlib -o BarberManager.Dominio
+dotnet new webapp -o BarberManager.Servicios
+dotnet new razor -o BarberManager.Frontend
+dotnet new console -o BarberManager.Consola
 
 cd ..
 tree
@@ -29,14 +29,14 @@ tree
 
 dotnet tool list
 dotnet tool install --global dotnet-ef --version 5.0.0
-dotnet tool update --global dotnet-ef --version 5.0.0
+dotnet tool update --global dotnet-
 
 -Instalación proyecto
 
-dotnet add package Microsoft.EntityFrameworkCore --version 5.0.0
-dotnet add package Microsoft.EntityFrameworkCore.Tools --version 5.0.0
-dotnet add package Microsoft.EntityFrameworkCore.Design --version 5.0.0
-dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 5.0.0
+dotnet add package Microsoft.EntityFrameworkCore
+dotnet add package Microsoft.EntityFrameworkCore.Tools
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 
 -Utilización
 
@@ -83,3 +83,9 @@ dotnet ef dbcontext scaffold "Server=20.168.13.51; Database=barberia; user=sa; p
 
 para crear pagina de razor 
 dotnet new Page -na BaberManager.Frontent -o .\Pages\Login
+dotnet new Page -na BaberManager.Frontent -o .\Pages\Servicios
+
+
+modal son las ventanas que aparecen en el navegador e inhabilitan todo lo demas
+necesita crear una region de html con el la estructura
+y un archivo de .hs para la funcionalidad del modal

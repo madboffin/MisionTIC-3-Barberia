@@ -7,11 +7,12 @@ namespace BaberManager.Frontend
     {
         public void OnGet()
         {
-            Console.WriteLine("On get()");
         }
         public void OnPost()
         {
             Console.WriteLine("On post()");
+            //validar datos
+            // return RedirectPage("../Servicios/Servicios");
         }
     }
 }

@@ -2,9 +2,12 @@
 @model BaberManager.Frontend.LoginModel
 @{
     ViewData["Title"] = "Login";
+    @* if (user=="admin"){
+        Layout = "_LayoutAdmin";
+        }else {
+        Layout = "LayoutLogin";
+        } *@
 }
-
-@* <h1>@ViewData["Title"]</h1> *@
 
 <div class="v-container">
     <div class="text-center" id="login-title">
@@ -14,7 +17,7 @@
 
     <div class="fullscreen-container">
         <div class="login-container">
-            
+
             <form class="form">
                 <div class="input-group">
                     <label for="email">Correo</label>
