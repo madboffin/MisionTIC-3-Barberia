@@ -9,9 +9,8 @@ namespace BarberManager.Persistencia
     {
         T Adicionar(T obj);
         T Actualizar(T obj);
-        T Buscar(T obj);
-        int Eliminar(T obj);
+        T Buscar(int Id);
+        int Eliminar(int Id);
         IEnumerable<T> Consultar();
-
     }
 }

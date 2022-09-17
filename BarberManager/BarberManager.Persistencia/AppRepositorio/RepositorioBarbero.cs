@@ -16,7 +16,7 @@ namespace BarberManager.Persistencia
 
         public Barbero Actualizar(Barbero obj)
         {
-            var barberoEncontrado = Buscar(obj);
+            var barberoEncontrado = Buscar(obj.Id);
             if (barberoEncontrado != null)
             {
                 barberoEncontrado.Id = obj.Id;
@@ -38,9 +38,9 @@ namespace BarberManager.Persistencia
             return barbero.Entity;
         }
 
-        public Barbero Buscar(Barbero obj)
+        public Barbero Buscar(int Id)
         {
-            return appContexts.Barberos.FirstOrDefault(b => b.Id == obj.Id);
+            return appContexts.Barberos.FirstOrDefault(b => b.Id == Id);
         }
 
         public IEnumerable<Barbero> Consultar()
@@ -48,10 +48,10 @@ namespace BarberManager.Persistencia
             return appContexts.Barberos;
         }
 
-        public int Eliminar(Barbero obj)
+        public int Eliminar(int Id)
         {
             int result = 0;
-            var barberoEncontrado = Buscar(obj);
+            var barberoEncontrado = Buscar(Id);
             if (barberoEncontrado == null)
                 return result;
             appContexts.Barberos.Remove(barberoEncontrado);

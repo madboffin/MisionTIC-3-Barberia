@@ -16,7 +16,7 @@ namespace BarberManager.Persistencia
 
         public Servicio Actualizar(Servicio obj)
         {
-            var servicioEncontrado = Buscar(obj);
+            var servicioEncontrado = Buscar(obj.Id);
             if (servicioEncontrado != null){
                 servicioEncontrado.Id = obj.Id;
                 servicioEncontrado.Nombre = obj.Nombre;
@@ -33,9 +33,9 @@ namespace BarberManager.Persistencia
             return servicio.Entity;
         }
 
-        public Servicio Buscar(Servicio obj)
+        public Servicio Buscar(int Id)
         {
-            return appContexts.Sevicios.FirstOrDefault(s => s.Id == obj.Id);
+            return appContexts.Sevicios.FirstOrDefault(s => s.Id == Id);
         }
 
         public IEnumerable<Servicio> Consultar()
@@ -43,13 +43,13 @@ namespace BarberManager.Persistencia
             return appContexts.Sevicios;
         }
 
-        public int Eliminar(Servicio obj)
+        public int Eliminar(int Id)
         {
             int result = 0;
-            var servicioEncontrado = Buscar(obj);
+            var servicioEncontrado = Buscar(Id);
             if (servicioEncontrado == null)
                 return result;
-            appContexts.Sevicios.Remove(obj);
+            appContexts.Sevicios.Remove(servicioEncontrado);
             result = appContexts.SaveChanges();
             return result;
         }

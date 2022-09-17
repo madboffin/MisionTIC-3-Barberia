@@ -16,7 +16,7 @@ namespace BarberManager.Persistencia
 
         public Venta Actualizar(Venta obj)
         {
-            var ventaEncontrada = Buscar(obj);
+            var ventaEncontrada = Buscar(obj.Id);
             if (ventaEncontrada != null)
             {
                 ventaEncontrada.Id = obj.Id;
@@ -37,9 +37,9 @@ namespace BarberManager.Persistencia
             return venta.Entity;
         }
 
-        public Venta Buscar(Venta obj)
+        public Venta Buscar(int Id)
         {
-            return appContexts.Ventas.FirstOrDefault(v => v.Id == obj.Id);
+            return appContexts.Ventas.FirstOrDefault(v => v.Id == Id);
         }
 
         public IEnumerable<Venta> Consultar()
@@ -47,13 +47,13 @@ namespace BarberManager.Persistencia
             return appContexts.Ventas;
         }
 
-        public int Eliminar(Venta obj)
+        public int Eliminar(int Id)
         {
             int result = 0;
-            var ventaEncontrada = Buscar(obj);
+            var ventaEncontrada = Buscar(Id);
             if (ventaEncontrada == null)
                 return result;
-            appContexts.Ventas.Remove(obj);
+            appContexts.Ventas.Remove(ventaEncontrada);
             result = appContexts.SaveChanges();
             return result;
         }

@@ -16,7 +16,7 @@ namespace BarberManager.Persistencia
 
         public Usuario Actualizar(Usuario obj)
         {
-            var usuarioEncontrado = Buscar(obj);
+            var usuarioEncontrado = Buscar(obj.Id);
             if (usuarioEncontrado != null)
             {
                 usuarioEncontrado.Id = obj.Id;
@@ -37,9 +37,9 @@ namespace BarberManager.Persistencia
             return usuario.Entity;
         }
 
-        public Usuario Buscar(Usuario obj)
+        public Usuario Buscar(int Id)
         {
-            return appContexts.Usuarios.FirstOrDefault(u => u.Id == obj.Id);
+            return appContexts.Usuarios.FirstOrDefault(u => u.Id == Id);
         }
 
         public IEnumerable<Usuario> Consultar()
@@ -47,13 +47,13 @@ namespace BarberManager.Persistencia
             return appContexts.Usuarios;
         }
 
-        public int Eliminar(Usuario obj)
+        public int Eliminar(int Id)
         {
             int result = 0;
-            var usuarioEncontrado = Buscar(obj);
+            var usuarioEncontrado = Buscar(Id);
             if (usuarioEncontrado == null)
                 return result;
-            appContexts.Usuarios.Remove(obj);
+            appContexts.Usuarios.Remove(usuarioEncontrado);
             result = appContexts.SaveChanges();
             return result;
         }

@@ -16,7 +16,7 @@ namespace BarberManager.Persistencia
 
         public Rol Actualizar(Rol obj)
         {
-            var rolEncontrado = Buscar(obj);
+            var rolEncontrado = Buscar(obj.Id);
             if (rolEncontrado != null)
             {
                 rolEncontrado.Id = obj.Id;
@@ -33,9 +33,9 @@ namespace BarberManager.Persistencia
             return rol.Entity;
         }
 
-        public Rol Buscar(Rol obj)
+        public Rol Buscar(int Id)
         {
-            return appContexts.Roles.FirstOrDefault(r => r.Id == obj.Id);
+            return appContexts.Roles.FirstOrDefault(r => r.Id == Id);
         }
 
         public IEnumerable<Rol> Consultar()
@@ -43,13 +43,13 @@ namespace BarberManager.Persistencia
             return appContexts.Roles;
         }
 
-        public int Eliminar(Rol obj)
+        public int Eliminar(int Id)
         {
             int result = 0;
-            var rolEncontrado = Buscar(obj);
+            var rolEncontrado = Buscar(Id);
             if (rolEncontrado == null)
                 return result;
-            appContexts.Roles.Remove(obj);
+            appContexts.Roles.Remove(rolEncontrado);
             result = appContexts.SaveChanges();
             return result;
         }
