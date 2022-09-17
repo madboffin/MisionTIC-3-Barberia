@@ -1,4 +1,34 @@
 ﻿@page
 @model BaberManager.Frontent.ServiciosEditarModel
 @{
+    var rol = Model.rol;
 }
+<div class="container border border-secondary rounded-25">
+    <div class="row">
+        <div class="col-md-2 col-12">
+
+        </div>
+        <div class="col-md-8 col-12">
+            <br>
+            <h1>Registro de servicios</h1>
+            <form method="post" id="form-registro">
+                @Html.AntiForgeryToken()
+                <h1>@rol.Nombre</h1>
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="digite nombre" 
+                        minlength="4" maxlength="12" value="@rol.Nombre">
+                        @{Console.WriteLine(rol.Nombre);}
+                        @{Console.WriteLine(rol);}
+                </div>
+                <button type="submit" class="btn btn-primary">Registrar</button>
+                <button type="reset" class="btn btn-primary">Limpiar</button>
+            </form>
+            <br>
+        </div>
+        <div class="col-md-2 col-12">
+
+        </div>
+    </div>
+</div>
+
