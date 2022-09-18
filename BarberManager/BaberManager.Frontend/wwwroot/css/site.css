@@ -221,3 +221,13 @@ body {
 .login-button:focus {
   background-color: hsl(var(--primary-hsl), .7);
 }
+
+.table {
+  color:white;
+  font-size: 1.5rem;
+}
+
+.far {
+  color:white;
+  font-size: 25px;
+}

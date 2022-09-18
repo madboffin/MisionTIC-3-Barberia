@@ -1,34 +1,36 @@
 ﻿@page
 @model BaberManager.Frontent.ServiciosEditarModel
 @{
-    var rol = Model.rol;
+    var servicio = Model.servicio;
 }
 <div class="container border border-secondary rounded-25">
     <div class="row">
-        <div class="col-md-2 col-12">
-
-        </div>
+        <div class="col-md-2 col-12"> </div>
         <div class="col-md-8 col-12">
             <br>
-            <h1>Registro de servicios</h1>
+            <br>
+            <h1>Registro de personas</h1>
             <form method="post" id="form-registro">
                 @Html.AntiForgeryToken()
-                <h1>@rol.Nombre</h1>
                 <div class="form-group">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="digite nombre" 
-                        minlength="4" maxlength="12" value="@rol.Nombre">
-                        @{Console.WriteLine(rol.Nombre);}
-                        @{Console.WriteLine(rol);}
+                    <label for="nombreServicio">Nombre del servicio</label>
+                    <input type="text" class="form-control" id="nombreServicio" name="nombreServicio"
+                        placeholder="Digite el nombre del servicio" minlength="3" maxlength="50"
+                        value="@servicio.Nombre">
                 </div>
+                <div class="form-group">
+                    <label for="costoServicio">Costo</label>
+                    <input type="number" class="form-control" id="costoServicio" name="costoServicio"
+                        placeholder="Digite el costo del servicio" min="0" max="9999999999" step="10"
+                        value="@servicio.Precio">
+                </div>
+                <br>
                 <button type="submit" class="btn btn-primary">Registrar</button>
-                <button type="reset" class="btn btn-primary">Limpiar</button>
+                <button type="reset" class="btn btn-secondary">Limpiar</button>
             </form>
             <br>
+            <br>
         </div>
-        <div class="col-md-2 col-12">
-
-        </div>
+        <div class="col-md-2 col-12"> </div>
     </div>
 </div>
-

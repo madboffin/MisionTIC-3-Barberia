@@ -3,9 +3,9 @@
 @{
     @* ViewData["script"];*@
     ViewData["script"] = "servicios.js";
-    Layout = "_LayoutNotAdmin";
+    @* Layout = "_LayoutNotAdmin"; *@
 }
-<div class="container bg-white border border-secondary rounded-25">
+<div class="container border-secondary rounded-25">
     <div class="row">
         <div class="col-md-2 col-sm-12"></div>
         <div class="col-md-8 col-sm-12">
@@ -15,27 +15,29 @@
                     <tr>
                         <th>Id</th>
                         <th>Nombre</th>
+                        <th>Precio</th>
                         <th>Editar</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var rol in Model.listaRoles)
+                    @foreach (var servicio in Model.listaServicios)
                     {
                         <tr>
-                            <td>@rol.Id</td>
-                            <td>@rol.Nombre</td>
-                            <td>
-                                <a asp-page="../Servicios/Servicioseditar" asp-route-Id="@rol.Id">
-                                    <i class="far fa-edit" style="font-size:25px; color:black"></i>
-                                </a>
-                                <a asp-page="../Servicios/Servicioseditar" asp-route-Id="@rol.Id">
-                                    <i class="far fa-trash-alt" style="font-size:25px; color:black"></i>
-                                </a>
+                            <td>@servicio.Id</td>
+                            <td>@servicio.Nombre</td>
+                            <td>@servicio.Precio</td>
+                            <td> <a asp-page="../Servicios/ServiciosEditar" asp-route-Id="@servicio.Id">
+                                    <i class="far fa-edit"></i></a>
+                                <a asp-page="../Servicios/ServiciosEditar" asp-route-Id="@servicio.Id">
+                                    <i class="far fa-trash-alt"></i></a>
                             </td>
                         </tr>
                     }
                 </tbody>
             </table>
+            <form action="./ServiciosCrear">
+                <button type="submit" class="btn btn-primary">Crear servicio</button>
+            </form>
         </div>
         <div class="col-md-2 col-sm-12"></div>
     </div>
