@@ -8,6 +8,5 @@ namespace BarberManager.Dominio
         public DateTime Fecha { get; set; }
         public Barbero Barbero { get; set; }
         public Usuario Usuario { get; set; }
-        public DetalleServicio DetalleServicio { get; set; }
     }
 }

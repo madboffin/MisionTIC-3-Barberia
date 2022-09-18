@@ -24,7 +24,6 @@ namespace BarberManager.Persistencia
                 ventaEncontrada.Fecha = obj.Fecha;
                 ventaEncontrada.Barbero = obj.Barbero;
                 ventaEncontrada.Usuario = obj.Usuario;
-                ventaEncontrada.DetalleServicio = obj.DetalleServicio;
                 appContexts.SaveChanges();
             }
             return ventaEncontrada;

@@ -1,9 +1,11 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
+#nullable disable
+
 namespace BarberManager.Persistencia.Migrations
 {
-    public partial class Inicial : Migration
+    public partial class Corregida : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -53,29 +55,7 @@ namespace BarberManager.Persistencia.Migrations
                         name: "FK_Usuarios_Roles_RolId",
                         column: x => x.RolId,
                         principalTable: "Roles",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "DetalleServicios",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Cantidad = table.Column<int>(type: "int", nullable: false),
-                    Precio = table.Column<int>(type: "int", nullable: false),
-                    ServicioId = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_DetalleServicios", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_DetalleServicios_Sevicios_ServicioId",
-                        column: x => x.ServicioId,
-                        principalTable: "Sevicios",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -98,8 +78,7 @@ namespace BarberManager.Persistencia.Migrations
                         name: "FK_Barberos_Usuarios_UsuarioId",
                         column: x => x.UsuarioId,
                         principalTable: "Usuarios",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -111,8 +90,7 @@ namespace BarberManager.Persistencia.Migrations
                     Valor = table.Column<int>(type: "int", nullable: false),
                     Fecha = table.Column<DateTime>(type: "datetime2", nullable: false),
                     BarberoId = table.Column<int>(type: "int", nullable: true),
-                    UsuarioId = table.Column<int>(type: "int", nullable: true),
-                    DetalleServicioId = table.Column<int>(type: "int", nullable: true)
+                    UsuarioId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -121,20 +99,38 @@ namespace BarberManager.Persistencia.Migrations
                         name: "FK_Ventas_Barberos_BarberoId",
                         column: x => x.BarberoId,
                         principalTable: "Barberos",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Ventas_DetalleServicios_DetalleServicioId",
-                        column: x => x.DetalleServicioId,
-                        principalTable: "DetalleServicios",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Ventas_Usuarios_UsuarioId",
                         column: x => x.UsuarioId,
                         principalTable: "Usuarios",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DetalleServicios",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    VentaId = table.Column<int>(type: "int", nullable: true),
+                    ServicioId = table.Column<int>(type: "int", nullable: true),
+                    Cantidad = table.Column<int>(type: "int", nullable: false),
+                    Precio = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DetalleServicios", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_DetalleServicios_Sevicios_ServicioId",
+                        column: x => x.ServicioId,
+                        principalTable: "Sevicios",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_DetalleServicios_Ventas_VentaId",
+                        column: x => x.VentaId,
+                        principalTable: "Ventas",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
@@ -148,6 +144,11 @@ namespace BarberManager.Persistencia.Migrations
                 column: "ServicioId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_DetalleServicios_VentaId",
+                table: "DetalleServicios",
+                column: "VentaId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Usuarios_RolId",
                 table: "Usuarios",
                 column: "RolId");
@@ -158,11 +159,6 @@ namespace BarberManager.Persistencia.Migrations
                 column: "BarberoId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Ventas_DetalleServicioId",
-                table: "Ventas",
-                column: "DetalleServicioId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Ventas_UsuarioId",
                 table: "Ventas",
                 column: "UsuarioId");
@@ -171,19 +167,19 @@ namespace BarberManager.Persistencia.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "DetalleServicios");
+
+            migrationBuilder.DropTable(
+                name: "Sevicios");
+
+            migrationBuilder.DropTable(
                 name: "Ventas");
 
             migrationBuilder.DropTable(
                 name: "Barberos");
 
             migrationBuilder.DropTable(
-                name: "DetalleServicios");
-
-            migrationBuilder.DropTable(
                 name: "Usuarios");
-
-            migrationBuilder.DropTable(
-                name: "Sevicios");
 
             migrationBuilder.DropTable(
                 name: "Roles");

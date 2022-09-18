@@ -29,7 +29,7 @@ tree
 
 dotnet tool list
 dotnet tool install --global dotnet-ef --version 5.0.0
-dotnet tool update --global dotnet-
+dotnet tool update --global dotnet
 
 -Instalación proyecto
 
@@ -68,9 +68,9 @@ dotnet ef database update --startup-project ..\BarberManager.Consola\
 - Proyecto de prueba de conexión a BD
 ---------------------------------------------
 
-dotnet new console -o HospiEnCasa.App.Consola
-dotnet add reference ..\HospiEnCasa.App.Dominio\
-dotnet add reference ..\HostiEnCasa.App.Persistencia\
+dotnet new console -o BarberManager.Consola
+dotnet add reference ..\BarberManager.Dominio\
+dotnet add reference ..\BarberManager.Persistencia\
 
 ---------------------------------------------
 - Sql server
@@ -81,11 +81,30 @@ ucaldas123
 dotnet ef dbcontext scaffold "Server=LAPTOP-5I9PKCH7; Database=HospiEnCasa; Integrated Security=True;" Microsoft.EntityFrameworkCore.SqlServer -o Data
 dotnet ef dbcontext scaffold "Server=20.168.13.51; Database=barberia; user=sa; password=P3g4sus.2022*;" Microsoft.EntityFrameworkCore.SqlServer -o Data
 
+
 para crear pagina de razor 
 dotnet new Page -na BaberManager.Frontent -o .\Pages\Login
 dotnet new Page -na BaberManager.Frontent -o .\Pages\Servicios
+dotnet new Page -n ServiciosEditar -na BaberManager.Frontent -o .\Pages\Servicios
+dotnet new Page -n ServiciosCrear -na BaberManager.Frontent -o .\Pages\Servicios
+dotnet new Page -n Usuarios -na BaberManager.Frontent -o .\Pages\Usuarios
+dotnet new Page -n Roles -na BaberManager.Frontent -o .\Pages\Roles
 
 
 modal son las ventanas que aparecen en el navegador e inhabilitan todo lo demas
 necesita crear una region de html con el la estructura
 y un archivo de .hs para la funcionalidad del modal
+
+
+DONE inicio
+DONE login
+roles (crear, buscar, modificar, inactivar)
+usuarios (crear, buscar, modificar, inactivar)
+servicios (crear, buscar, modificar, inactivar)
+barberos (crear, buscar, modificar, inactivar)
+ventas-detalle servicios (importante) (crear, reporte, modificar, inactivar)
+
+
+server: s-east.database.windows.net
+user: presume5479
+pass: N!ftQ^5gbxxBwV2yw#&Fk2H

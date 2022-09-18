@@ -20,6 +20,7 @@ namespace BarberManager.Persistencia
             if (detalleEncontrado != null)
             {
                 detalleEncontrado.Id = obj.Id;
+                detalleEncontrado.Venta = obj.Venta;
                 detalleEncontrado.Servicio = obj.Servicio;
                 detalleEncontrado.Cantidad = obj.Cantidad;
                 detalleEncontrado.Precio = obj.Precio;

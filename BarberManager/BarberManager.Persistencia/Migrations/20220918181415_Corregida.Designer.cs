@@ -7,26 +7,30 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
+#nullable disable
+
 namespace BarberManager.Persistencia.Migrations
 {
     [DbContext(typeof(AppContexts))]
-    [Migration("20220908141445_Inicial")]
-    partial class Inicial
+    [Migration("20220918181415_Corregida")]
+    partial class Corregida
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .UseIdentityColumns()
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.0");
+                .HasAnnotation("ProductVersion", "6.0.9")
+                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
             modelBuilder.Entity("BarberManager.Dominio.Barbero", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Correo")
                         .HasColumnType("nvarchar(max)");
@@ -57,8 +61,9 @@ namespace BarberManager.Persistencia.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("Cantidad")
                         .HasColumnType("int");
@@ -69,9 +74,14 @@ namespace BarberManager.Persistencia.Migrations
                     b.Property<int?>("ServicioId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("VentaId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ServicioId");
+
+                    b.HasIndex("VentaId");
 
                     b.ToTable("DetalleServicios");
                 });
@@ -80,8 +90,9 @@ namespace BarberManager.Persistencia.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Nombre")
                         .HasColumnType("nvarchar(max)");
@@ -95,8 +106,9 @@ namespace BarberManager.Persistencia.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Nombre")
                         .HasColumnType("nvarchar(max)");
@@ -113,8 +125,9 @@ namespace BarberManager.Persistencia.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Contrasena")
                         .HasColumnType("nvarchar(max)");
@@ -142,13 +155,11 @@ namespace BarberManager.Persistencia.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<int?>("BarberoId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("DetalleServicioId")
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int?>("BarberoId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Fecha")
@@ -163,8 +174,6 @@ namespace BarberManager.Persistencia.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("BarberoId");
-
-                    b.HasIndex("DetalleServicioId");
 
                     b.HasIndex("UsuarioId");
 
@@ -186,7 +195,13 @@ namespace BarberManager.Persistencia.Migrations
                         .WithMany()
                         .HasForeignKey("ServicioId");
 
+                    b.HasOne("BarberManager.Dominio.Venta", "Venta")
+                        .WithMany()
+                        .HasForeignKey("VentaId");
+
                     b.Navigation("Servicio");
+
+                    b.Navigation("Venta");
                 });
 
             modelBuilder.Entity("BarberManager.Dominio.Usuario", b =>
@@ -204,17 +219,11 @@ namespace BarberManager.Persistencia.Migrations
                         .WithMany()
                         .HasForeignKey("BarberoId");
 
-                    b.HasOne("BarberManager.Dominio.DetalleServicio", "DetalleServicio")
-                        .WithMany()
-                        .HasForeignKey("DetalleServicioId");
-
                     b.HasOne("BarberManager.Dominio.Usuario", "Usuario")
                         .WithMany()
                         .HasForeignKey("UsuarioId");
 
                     b.Navigation("Barbero");
-
-                    b.Navigation("DetalleServicio");
 
                     b.Navigation("Usuario");
                 });
