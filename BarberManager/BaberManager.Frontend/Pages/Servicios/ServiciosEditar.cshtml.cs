@@ -4,7 +4,7 @@ using System.Web;
 using BarberManager.Dominio;
 using BarberManager.Persistencia;
 
-namespace BaberManager.Frontent
+namespace BaberManager.Frontend
 {
     public class ServiciosEditarModel : PageModel
     {
