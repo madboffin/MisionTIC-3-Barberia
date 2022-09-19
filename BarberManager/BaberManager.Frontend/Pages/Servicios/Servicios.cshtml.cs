@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using BarberManager.Dominio;
 using BarberManager.Persistencia;
 
-namespace BaberManager.Frontent
+namespace BaberManager.Frontend
 {
     public class ServiciosModel : PageModel
     {
