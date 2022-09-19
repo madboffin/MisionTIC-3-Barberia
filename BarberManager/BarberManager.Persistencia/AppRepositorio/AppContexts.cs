@@ -20,7 +20,7 @@ namespace BarberManager.Persistencia
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder
-               .UseSqlServer("Server=DESKTOP-7VOAUUO; Database=barber_manager; Integrated Security=True;");
+               .UseSqlServer("Server=LAPTO-TIO\\SQLEXPRESS; Database=barber_manager; Integrated Security=True;");
             //    .UseSqlServer("Server=tcp:s-east.database.windows.net,1433;Initial Catalog=barber_manager;Persist Security Info=False;User ID=presume5479;Password=N!ftQ^5gbxxBwV2yw#&Fk2H;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             }
         }

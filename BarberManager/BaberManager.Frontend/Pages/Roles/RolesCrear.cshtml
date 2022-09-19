@@ -1,4 +1,31 @@
 ﻿@page
 @model BaberManager.Frontend.RolesCrearModel
 @{
+
 }
+<div class="container border border-secondary rounded-25">
+    <div class="row">
+        <div class="col-md-2 col-12"> </div>
+        <div class="col-md-8 col-12">
+            <br>
+            <br>
+            <h1>Registro de Roles</h1>
+            <form method="post" id="form-registro">
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    <label for="nombreRol">Nombre del Rol</label>
+                    <input type="text" class="form-control" id="nombreRol" name="nombreRol"
+                        placeholder="Digite el nombre del Rol" minlength="3" maxlength="50">
+                </div>
+                
+                <br>
+                <button type="submit" class="btn btn-primary">Registrar</button>
+                <button type="reset" class="btn btn-secondary">Limpiar</button>
+            </form>
+
+            <br>
+            <br>
+        </div>
+        <div class="col-md-2 col-12"> </div>
+    </div>
+</div>
