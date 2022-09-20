@@ -13,5 +13,15 @@ namespace BaberManager.Frontend
         {
             listaServicios = _repositorioServicio.Consultar().ToList();
         }
+        public IActionResult OnPostCreate([FromBody] Servicio _servicio)
+        {
+            //TODO validar datos
+            var servidioAdicionado = _repositorioServicio.Adicionar(_servicio);
+            if (servidioAdicionado == null) {
+                return Content("Error al guardar el servicio");
+            }
+            else { }
+            return Content("Guardado exitosamente");
+        }
     }
 }

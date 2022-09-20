@@ -9,9 +9,10 @@
         <div class="col-md-8 col-12">
             <br>
             <br>
-            <h1>Registro de personas</h1>
+            <h1>Actualización de personas</h1>
             <form method="post" id="form-registro">
-                @Html.AntiForgeryToken()
+                @* @Html.AntiForgeryToken() *@
+                <input type="hidden" name="@servicio.Id" id="idServicio">
                 <div class="form-group">
                     <label for="nombreServicio">Nombre del servicio</label>
                     <input type="text" class="form-control" id="nombreServicio" name="nombreServicio"
@@ -25,7 +26,7 @@
                         value="@servicio.Precio">
                 </div>
                 <br>
-                <button type="submit" class="btn btn-primary">Registrar</button>
+                <button type="submit" class="btn btn-primary">Actualizar</button>
                 <button type="reset" class="btn btn-secondary">Limpiar</button>
             </form>
             <br>
