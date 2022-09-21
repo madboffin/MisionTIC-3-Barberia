@@ -24,7 +24,7 @@
                             <td>@servicio.Id</td>
                             <td>@servicio.Nombre</td>
                             <td>@servicio.Precio</td>
-                            <td> <a class="btn btn-secondary" id="editarServicios">
+                            <td> <a class="btn btn-primary" id="editarServicios">
                                     <i class="far fa-edit">editar</i></a>
                                 <a class="btn btn-secondary" id="eliminarServicios">
                                     <i class="far fa-trash-alt">eliminar</i></a>
@@ -70,6 +70,50 @@
                                         value="10000">
                                 </div>
                                 <button type="submit" class="btn btn-primary" id="registrarServicios">Registrar</button>
+                                <button type="reset" class="btn btn-secondary">Limpiar</button>
+                            </form>
+                        </div>
+                        <div class="col-md-2 col-12"> </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal Editar-->
+<div class="modal" id="modalEditarServicios" tabindex="-1" role="dialog">
+    <div class=" modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalRegistrarLabel">Edicion de servicios</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-2 col-12"> </div>
+                        <div class="col-md-8 col-12">
+                            <form method="post" action="" id="formRegistrar">
+                                @Html.AntiForgeryToken()
+                                <div class="form-group">
+                                    <label for="nombreServicio">Nombre del servicio</label>
+                                    <input type="text" class="form-control" id="nombreServicio" name="nombreServicio"
+                                        placeholder="Digite el nombre del servicio" minlength="3" maxlength="50">
+                                </div>
+                                <div class="form-group">
+                                    <label for="costoServicio">Costo</label>
+                                    <input type="number" class="form-control" id="costoServicio" name="costoServicio"
+                                        placeholder="Digite el costo del servicio" min="0" max="9999999999" step="10"
+                                        value="10000">
+                                </div>
+                                <button type="submit" class="btn btn-primary" id="registrarServicios">Guardar</button>
                                 <button type="reset" class="btn btn-secondary">Limpiar</button>
                             </form>
                         </div>

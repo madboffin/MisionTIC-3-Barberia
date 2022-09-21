@@ -32,10 +32,28 @@ $("#registrarServicios").click(function () {
 });
 
 
-$("#editarServicios").click(function () {
-    alert("Editar");
-});
+// $(document).onclick(function () {
+//     $("#modalEditarServicios").modal('show');
+// });
+$(document).on('click', '#tableServicios tbody tr td a.btn.btn-primary', function () {
+    alert("presiono boton");
+    $(this).parent().parent().find('td').each(function (index) {
+        switch (index) {
+            case 0:
+                $('#Id').val($(this).text());
+                break;
+            case 1:
+                $('#Nombre').val($(this).text());
+                break;
+            case 2:
+                $('#Precio').val($(this).text());
+                break;
+        }
+    });
 
+    $('#modalEditarServicios').modal('show');
+
+});
 $("#eliminarServicios").click(function () {
     if (confirm("Eliminar el registro") == true) {
         alert("TODO eliminar");
