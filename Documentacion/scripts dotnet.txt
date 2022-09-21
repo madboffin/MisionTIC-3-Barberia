@@ -62,6 +62,7 @@ Ejecutar los comandos de instalación ef en el proyecto
 
 -crear el script para creación de tablas
 dotnet ef migrations add Inicial --startup-project ..\BarberManager.Consola\
+dotnet ef migrations add Corregida --startup-project ..\BarberManager.Consola\
 -crear base de datos
 dotnet ef database update --startup-project ..\BarberManager.Consola\
 ---------------------------------------------
@@ -85,10 +86,10 @@ dotnet ef dbcontext scaffold "Server=20.168.13.51; Database=barberia; user=sa; p
 para crear pagina de razor 
 dotnet new Page -na BaberManager.Frontent -o .\Pages\Login
 dotnet new Page -na BaberManager.Frontent -o .\Pages\Servicios
-dotnet new Page -n ServiciosEditar -na BaberManager.Frontent -o .\Pages\Servicios
-dotnet new Page -n ServiciosCrear -na BaberManager.Frontent -o .\Pages\Servicios
-dotnet new Page -n Usuarios -na BaberManager.Frontent -o .\Pages\Usuarios
-dotnet new Page -n Roles -na BaberManager.Frontent -o .\Pages\Roles
+dotnet new Page -n ServiciosEditar -na BaberManager.Frontend -o .\Pages\Servicios
+dotnet new Page -n ServiciosCrear -na BaberManager.Frontend -o .\Pages\Servicios
+dotnet new Page -n UsuariosCrear -na BaberManager.Frontend -o .\Pages\Usuarios
+dotnet new Page -n RolesCrear -na BaberManager.Frontend -o .\Pages\Roles
 
 
 modal son las ventanas que aparecen en el navegador e inhabilitan todo lo demas
