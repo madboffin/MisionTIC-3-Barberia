@@ -1,0 +1,66 @@
+﻿@page
+@model BaberManager.Frontend.UsuariosCrearModel
+@{
+}
+<div class="container border border-secondary rounded-25">
+    <div class="row">
+        <div class="col-md-2 col-12"> </div>
+        <div class="col-md-8 col-12">
+            <br>
+            <br>
+            <h1>Registro de Usuarios</h1>
+            <form method="post" id="form-registro">
+                @Html.AntiForgeryToken()
+
+                <div class="form-group">
+                    <label for="nombreUsuario">Nombre del Usuario</label>
+                    <input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario"
+                        placeholder="Digite el nombre del Usuario" minlength="3" maxlength="50">
+                </div>
+
+                <div class="form-group">
+                    <label for="contrasenaUsuario">Contraseña</label>
+                    <input type="password" class="form-control" id="contrasenaUsuario" name="contrasenaUsuario"
+                        placeholder="Digite la contraseña" minlength="3" maxlength="50">
+                </div>
+                <br>
+                <div>
+                    <label for="Rol">Seleccione el rol</label>
+                    <select name="rolUsuario" id="rolUsuario">
+                        <optgroup label="Seleccione el rol">
+                            <option value="">Seleccione</option>
+                            <option value="0">Administrador</option>
+                            <option value="1">Recepcionista</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <br>
+                <div>
+                    <label for="estadoUsuario">Seleccione el estado</label>
+                    <select name="estadoUsuario" id="estadoUsuario">
+                        <optgroup label="Seleccione el estado">
+                            <option value="">Seleccione</option>
+                            <option value="0">Activo</option>
+                            <option value="1">inactivo</option>
+                        </optgroup>
+                    </select>
+                    <br>
+
+                </div>
+                <div class="form-group">
+                    <label for="correoUsuario">Correo Usuario</label>
+                    <input type="text" class="form-control" id="correoUsuario" name="correoUsuario"
+                        placeholder="Digite el correo" minlength="3" maxlength="50">
+                </div>
+
+                <br>
+                <button type="submit" class="btn btn-primary">Registrar</button>
+                <button type="reset" class="btn btn-secondary">Limpiar</button>
+            </form>
+
+            <br>
+            <br>
+        </div>
+        <div class="col-md-2 col-12"> </div>
+    </div>
+</div>
