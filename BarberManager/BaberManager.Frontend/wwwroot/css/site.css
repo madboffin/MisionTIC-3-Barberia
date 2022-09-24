@@ -200,15 +200,10 @@ body {
   background-color: hsl(var(--primary-hsl), .7);
 }
 
-.table {
+/* Tablas e Iconos */
+.table, .far {
   color: white;
-  font-size: 1.5rem;
-}
-
-/* Iconos */
-.far {
-  color: white;
-  font-size: 25px;
+  font-size: 1.2rem;
 }
 
 /* Modal */

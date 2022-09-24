@@ -10,9 +10,19 @@ namespace BaberManager.Frontend
         }
         public void OnPost()
         {
-            Console.WriteLine("On post()");
-            //validar datos
-            // return RedirectPage("../Servicios/Servicios");
+        }
+
+        public IActionResult OnPostValidateLogin(string Usuario, string Password){
+            return Content(Usuario + "-" + Password);
+        }
+        public void ConfigureServices(IServiceCollection services){
+            services.AddRazorPages();
+            services.AddHttpContextAccessor();
+            services.AddSession(options => {
+                options.Cookie.HttpOnly = true;
+                options.Cookie.Name = ".BarberManager.Session";
+                options.Cookie.IsEssential = true;
+            });
         }
     }
 }
