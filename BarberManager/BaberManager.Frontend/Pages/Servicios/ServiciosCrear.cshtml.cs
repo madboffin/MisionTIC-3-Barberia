@@ -23,8 +23,8 @@ namespace BaberManager.Frontend {
                 Precio = costo
             };
 
-            var servidioAdicionado = _repositorioServicio.Adicionar(servicio);
-            if (servidioAdicionado == null) {
+            var servicioAdicionado = _repositorioServicio.Adicionar(servicio);
+            if (servicioAdicionado == null) {
                 Console.WriteLine("Error al guardar el servicio");
                 return;
             }

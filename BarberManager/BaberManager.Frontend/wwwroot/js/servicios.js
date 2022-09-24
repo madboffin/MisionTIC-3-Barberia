@@ -36,7 +36,6 @@ $("#registrarServicios").click(function () {
 //     $("#modalEditarServicios").modal('show');
 // });
 $(document).on('click', '#tableServicios tbody tr td a.btn.btn-primary', function () {
-    alert("presiono boton");
     $(this).parent().parent().find('td').each(function (index) {
         switch (index) {
             case 0:
@@ -54,10 +53,23 @@ $(document).on('click', '#tableServicios tbody tr td a.btn.btn-primary', functio
     $('#modalEditarServicios').modal('show');
 
 });
-$("#eliminarServicios").click(function () {
-    if (confirm("Eliminar el registro") == true) {
-        alert("TODO eliminar");
-    } else {
-        alert("Cancelado");
-    };
+
+// Transformando tabla en DataTable
+$(document).ready(function () {
+    $('#tableServicios').DataTable();
+});
+// Inicializando tooltips
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+$(document).on('click', '#tableServicios tbody tr td a.btn.btn-secondary', function () {
+    // $(this).parent().parent().find("td").each(function (index) {
+    //     switch (index) {
+    //         case 0:
+    //             $("#idServicioEliminar").val($(this).text());
+    //             break;
+
+    //     }
+    // );
 });

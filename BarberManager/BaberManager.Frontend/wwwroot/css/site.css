@@ -9,19 +9,32 @@
     font-size: 16px;
   }
 
+  input
+
   /* Tamaño para todo el html de 100% */
   html {
     min-height: 100%;
   }
+}
 
+/* Background de todas las páginas en el body imagen de barbero */
+body {
+  background-image: url("../image/barber_big.png");
+  background-color: black;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  font-size: 14px;
+  color: white;
 }
 
 /* Contenedor Marrón transparente todos las páginas*/
 .v-container {
-  background-color: #4a2e09b8;
+  background-color: #4a2e094b;
   height: 90%;
   border-radius: 20px;
-  border: solid 1px #E09F0B;
+  border: solid 1px #e0a00bbb;
 }
 
 /* Bloque de formulario de ventas */
@@ -53,18 +66,6 @@
 #login-title {
   font-family: Roboto !important;
   color: rgb(250, 250, 250);
-}
-
-/* Background de todas las páginas en el body imagen de barbero */
-body {
-  background-image: url("../image/barber_big.png");
-  background-color: black;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  font-size: 14px;
-  color: white !important;
 }
 
 /* Altura del contenedor en la página de inicio */
@@ -178,35 +179,9 @@ body {
   font-weight: lighter;
 }
 
-/* .input-group.success input {
-  box-shadow: 0 0 0 1px hsl(var(--success-hsl));
-}
-
-.input-group.error input {
-  box-shadow: 0 0 0 1px hsl(var(--error-hsl));
-} */
-
 .input-group input:focus {
   box-shadow: 0 0 0 1px hsl(var(--primary-hsl));
 }
-
-/* .input-group .msg {
-  display: none;
-  font-size: .75rem;
-}
-
-.input-group.success .msg,
-.input-group.error .msg {
-  display: block;
-}
-
-.input-group.success .msg {
-  color: hsl(var(--success-hsl));
-}
-
-.input-group.error .msg {
-  color: hsl(var(--error-hsl));
-} */
 
 .login-button {
   padding: .5em 1em;
@@ -230,11 +205,13 @@ body {
   font-size: 1.5rem;
 }
 
+/* Iconos */
 .far {
   color: white;
   font-size: 25px;
 }
 
+/* Modal */
 .modal {
   color: black;
 }
@@ -244,3 +221,23 @@ body {
   border: 0px solid black;
   /* outline: none; */
 }
+
+/*  DataTables */
+.dataTables_length,
+.dataTables_info,
+.dataTables_filter {
+  color: white !important;
+}
+
+.dataTables_length select,
+.dataTables_filter input {
+  color: white !important;
+}
+/* Buscando como poner la paginacion en blanco */
+/* .dataTables_paginate {
+  color: white !important;
+}
+.page-link {
+  background-color: black !important;
+  color: #ffffff !important;
+} */

@@ -23,5 +23,15 @@ namespace BaberManager.Frontend
             else { }
             return Content("Guardado exitosamente");
         }
+        public IActionResult OnPostDelete([FromBody] int Id){
+            Console.WriteLine(Id);
+            var result = _repositorioServicio.Eliminar(Id);
+            if (result==0){
+                return Content("No se pudo elminar");
+            } else {
+                return Content("Eliminado correctamente");
+            }
+            
+        }
     }
 }
