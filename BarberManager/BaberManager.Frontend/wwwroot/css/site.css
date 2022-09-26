@@ -228,6 +228,13 @@ body {
 .dataTables_filter input {
   color: white !important;
 }
+
+.container{
+
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 /* Buscando como poner la paginacion en blanco */
 /* .dataTables_paginate {
   color: white !important;

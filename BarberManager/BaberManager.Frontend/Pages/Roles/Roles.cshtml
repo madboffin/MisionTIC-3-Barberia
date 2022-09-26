@@ -4,41 +4,46 @@
      @* ViewData["script"];*@
     /* ViewData["script"] = "roles.js";*/
 }
-
-<div class="container border-secondary rounded-25">
-    <div class="row">
-        <div class="col-md-2 col-sm-12"></div>
-        <div class="col-md-8 col-sm-12">
-            <h2>Listado Roles Barberia</h2>
-            <table class="table" id="tableRoles">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Rol</th>
-                        
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var Rol in Model.listaRoles)
-                    {
+<div class="v-container">
+    <div class="container border-secondary rounded-25">
+        <div class="row">
+            <div class="col-md-2 col-sm-12"></div>
+            <div class="col-md-8 col-sm-12">
+                <h2>Listado Roles Barberia</h2>
+                <table class="table" id="tableRoles">
+                    <thead>
                         <tr>
-                            <td>@Rol.Id</td>
-                            <td>@Rol.Nombre</td>
+                            <th>Id</th>
+                            <th>Rol</th>
                             
-                            <td> <a asp-page="../Roles/RolesEditar" asp-route-Id="@Rol.Id">
-                                    <em class="far fa-edit"></em></a>
-                                <a asp-page="../Roles/RolesEditar" asp-route-Id="@Rol.Id">
-                                    <em class="far fa-trash-alt"></em></a>
-                            </td>
                         </tr>
-                    }
-                </tbody>
-            </table>
-            <form action="./RolesCrear">
-                <button type="submit" class="btn btn-primary">Crear Roles</button>
-            </form>
-        </div>
-        <div class="col-md-2 col-sm-12"></div>
-    </div>
+                    </thead>
+                    <tbody>
+                        @foreach (var Rol in Model.listaRoles)
+                        {
+                            <tr>
+                                <td>@Rol.Id</td>
+                                <td>@Rol.Nombre</td>
+                                
+                                
 
+                                <td> <a asp-page="../Roles/RolesEditar" asp-route-Id="@Rol.Id" class="btn btn-primary" id="editarServicios" data-toggle="tooltip" data-pacement="top"
+                                title="Editar un servicio">
+                                        <em class="far fa-edit"> Editar</em></a>
+                                    <a asp-page="../Roles/RolesEditar" asp-route-Id="@Rol.Id" class="btn btn-secondary" id="eliminarServicios" data-toggle="tooltip"
+                                data-pacement="top" title="Eliminar una persona">
+                                        <em class="far fa-trash-alt"> Eliminar</em></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <form action="./RolesCrear">
+                    <button type="submit" class="btn btn-primary">Crear Roles</button>
+                </form>
+            </div>
+            <div class="col-md-2 col-sm-12"></div>
+        </div>
+
+    </div>
 </div>
