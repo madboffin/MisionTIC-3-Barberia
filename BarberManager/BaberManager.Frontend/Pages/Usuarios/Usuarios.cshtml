@@ -1,4 +1,47 @@
 ﻿@page
 @model BaberManager.Frontent.UsuariosModel
 @{
+    ViewData["script"] = "usuarios.js";
 }
+<div class="container border-secondary rounded-25">
+    <div class="row">
+        <div class="col-md-2 col-sm-12"></div>
+        <div class="col-md-8 col-sm-12">
+            <h2>Listado Servicios</h2>
+            <table class="table" id="tableUsuarios">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Rol</th>
+                        <th>Estado</th>
+                        <th>Correo</th>
+                        <th>Editar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var usuario in Model.listaUsuarios) {
+                        @* Console.WriteLine(usuario.Rol.Nombre); *@
+                        <tr>
+                            <td>@usuario.Id</td>
+                            <td>@usuario.Nombre</td>
+                            <td>testrol</td>
+                            <td>@usuario.Estado</td>
+                            <td>@usuario.Correo</td>
+                            <td> <a class="btn btn-primary" id="editarServicios" data-toggle="tooltip" data-pacement="top"
+                                title="Editar un servicio">
+                                <i class="far fa-edit"> Editar</i></a>
+                                <a class="btn btn-secondary" id="eliminarServicios" data-toggle="tooltip"
+                                data-pacement="top" title="Eliminar una persona">
+                                <i class="far fa-trash-alt"> Eliminar</i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" id="crearServiciosModal"> Agregar nuevo servicio </button>
+        </div>
+        <div class="col-md-2 col-sm-12"></div>
+    </div>
+</div>
