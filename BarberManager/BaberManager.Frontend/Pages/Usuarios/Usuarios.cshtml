@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-md-2 col-sm-12"></div>
         <div class="col-md-8 col-sm-12">
-            <h2>Listado Servicios</h2>
+            <h2>Listado de usuarios</h2>
             <table class="table" id="tableUsuarios">
                 <thead>
                     <tr>
@@ -25,13 +25,13 @@
                         <tr>
                             <td>@usuario.Id</td>
                             <td>@usuario.Nombre</td>
-                            <td>testrol</td>
+                            <td>rol</td>
                             <td>@usuario.Estado</td>
                             <td>@usuario.Correo</td>
-                            <td> <a class="btn btn-primary" id="editarServicios" data-toggle="tooltip" data-pacement="top"
+                            <td> <a class="btn btn-primary" id="btnEditar" data-toggle="tooltip" data-pacement="top"
                                 title="Editar un servicio">
                                 <i class="far fa-edit"> Editar</i></a>
-                                <a class="btn btn-secondary" id="eliminarServicios" data-toggle="tooltip"
+                                <a class="btn btn-secondary" id="btnEliminar" data-toggle="tooltip"
                                 data-pacement="top" title="Eliminar una persona">
                                 <i class="far fa-trash-alt"> Eliminar</i></a>
                             </td>
@@ -40,7 +40,7 @@
                 </tbody>
             </table>
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" id="crearServiciosModal"> Agregar nuevo servicio </button>
+            <button type="button" class="btn btn-primary" id="btnCrearModal"> Agregar usuario </button>
         </div>
         <div class="col-md-2 col-sm-12"></div>
     </div>
