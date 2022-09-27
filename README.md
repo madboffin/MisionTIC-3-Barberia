@@ -13,4 +13,3 @@ Para correr la aplicación se debe instalar .NET 6.0, ubicarse en la carpeta Fro
 
 Documentacion del projecto:
 * https://valley-ballcap-baa.notion.site/BARBER_MANAGER-076be2a7e7ab4417a254974cebd5dbff
-Desarrollado con .NET 6.0
