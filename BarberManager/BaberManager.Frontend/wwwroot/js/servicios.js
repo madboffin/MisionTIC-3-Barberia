@@ -5,12 +5,12 @@ $(document).ready(function () {
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     });
+
+    // ==== REGISTRAR ====
     // Muestra el contenido del modal
     $("#crearServiciosModal").click(function () {
         $("#modalRegistrarServicios").modal('show');
     });
-
-    // ==== REGISTRAR ====
     //redirige a la creacion del objeto con ajax
     $("#registrarServicios").click(function () {
         //Validar datos
@@ -50,6 +50,7 @@ $(document).ready(function () {
     });
 
     // ==== EDITAR ====
+    // Anota los valores correspondientes en los contenedores asignados
     $(document).on('click', '#tableServicios tbody tr td a.btn.btn-primary', function () {
         $(this).parent().parent().find('td').each(function (index) {
             switch (index) {
@@ -77,8 +78,6 @@ $(document).ready(function () {
             "Nombre": nombre,
             "Precio": precio
         };
-        alert(id + nombre + precio);
-
         $.ajax({
             type: "POST",
             url: "/Servicios/Servicios?handler=Edit",

@@ -29,8 +29,9 @@
                     <select name="rolUsuario" id="rolUsuario">
                         <optgroup label="Seleccione el rol">
                             <option value="">Seleccione</option>
-                            <option value="0">Administrador</option>
-                            <option value="1">Recepcionista</option>
+                            @foreach(var rol in Model.listaRoles) {
+                                <option value="@rol.Id">@rol.Nombre</option>
+                            }
                         </optgroup>
                     </select>
                 </div>
@@ -41,7 +42,7 @@
                         <optgroup label="Seleccione el estado">
                             <option value="">Seleccione</option>
                             <option value="0">Activo</option>
-                            <option value="1">inactivo</option>
+                            <option value="1">Inactivo</option>
                         </optgroup>
                     </select>
                     <br>

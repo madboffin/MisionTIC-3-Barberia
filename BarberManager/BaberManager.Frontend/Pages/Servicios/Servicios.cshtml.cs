@@ -3,10 +3,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using BarberManager.Dominio;
 using BarberManager.Persistencia;
 
-namespace BaberManager.Frontend
-{
-    public class ServiciosModel : PageModel
-    {
+namespace BaberManager.Frontend {
+    public class ServiciosModel : PageModel {
         private static ICRUD<Servicio> _repositorioServicio = new RepositorioServicio(new BarberManager.Persistencia.AppContexts());
         public List<Servicio> listaServicios = new List<Servicio>();
         public void OnGet() {
@@ -28,7 +26,6 @@ namespace BaberManager.Frontend
                 return Content("Eliminado correctamente");
             }
         }
-
         public IActionResult OnPostEdit([FromBody] Servicio servicio) {
             var result = _repositorioServicio.Actualizar(servicio);
             if (result == null) {
