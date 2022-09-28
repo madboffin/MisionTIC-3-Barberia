@@ -1,53 +1,54 @@
 
 $(document).ready(function () {
     // Transformando tabla en DataTable
-    $('#tableUsuarios').DataTable();
+    $('#tableData').DataTable();
     // Inicializando tooltips
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     });
 
-    // // ==== REGISTRAR ====
-    // // Muestra el contenido del modal
-    // $("#crearServiciosModal").click(function () {
-    //     $("#modalRegistrarServicios").modal('show');
-    // });
-    // //redirige a la creacion del objeto con ajax
-    // $("#registrarServicios").click(function () {
-    //     //Validar datos
-    //     var nombre = $("#nombreServicio").val();
-    //     var precio = $("#costoServicio").val();
-    //     if (nombre.trim() == "") {
-    //         alert("nombre vacio");
-    //         return;
-    //     }
-    //     if (precio.trim() == "") {
-    //         alert("precio vacio");
-    //         return;
-    //     }
-    //     var servicio = {
-    //         "Nombre": nombre,
-    //         "Precio": precio
-    //     }
-    //     $.ajax({
-    //         type: "POST",
-    //         url: "/Servicios/Servicios?handler=Create",
-    //         contentType: "application/json; charset=utf-8",
-    //         dataType: "html",  //la respuesta que espera recibir
-    //         headers: {
-    //             "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
-    //         },
-    //         data: JSON.stringify(servicio)
-    //     })
-    //         .done(function (result) {
-    //             alert(result);
-    //             console.log(result);
-    //             location.reload();
-    //         })
-    //         .fail(function (error) {
-    //             console.log(result);
-    //             alert(error);
-    //         });
+    // ==== REGISTRAR ====
+    // Muestra el contenido del modal
+    $("#btnModal").click(function () {
+        $("#modalRegistrar").modal('show');
+    });
+    //redirige a la creacion del objeto con ajax
+    $("#btnRegistrar").click(function () {
+        alert("test");
+        //Validar datos
+        // var nombre = $("#nombreServicio").val();
+        // var precio = $("#costoServicio").val();
+        // if (nombre.trim() == "") {
+        //     alert("nombre vacio");
+        //     return;
+        // }
+        // if (precio.trim() == "") {
+        //     alert("precio vacio");
+        //     return;
+        // }
+        // var servicio = {
+        //     "Nombre": nombre,
+        //     "Precio": precio
+        // }
+        // $.ajax({
+        //     type: "POST",
+        //     url: "/Servicios/Servicios?handler=Create",
+        //     contentType: "application/json; charset=utf-8",
+        //     dataType: "html",  //la respuesta que espera recibir
+        //     headers: {
+        //         "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+        //     },
+        //     data: JSON.stringify(servicio)
+        // })
+        //     .done(function (result) {
+        //         alert(result);
+        //         console.log(result);
+        //         location.reload();
+        //     })
+        //     .fail(function (error) {
+        //         console.log(result);
+        //         alert(error);
+    });
     // });
 
     // // ==== EDITAR ====
@@ -100,42 +101,42 @@ $(document).ready(function () {
     //         });
     // });
 
-    // // ==== ELIMINAR ====
-    // // Anota el Id correspondiente a la fila en el contenedor asignado
-    // $(document).on('click', '#tableServicios tbody tr td a.btn.btn-secondary', function () {
-    //     // revisando cada fila
-    //     $(this).parent().parent().find('td').each(function (index) {
-    //         // la columna 1 contiene el Id
-    //         switch (index) {
-    //             case 0:
-    //                 $('#idServiciosEliminar').val($(this).text());
-    //                 break;
-    //         }
-    //     });
+    // ==== ELIMINAR ====
+    // Anota el Id correspondiente a la fila en el contenedor asignado
+    $(document).on('click', '#tableData tbody tr td a.btn.btn-secondary', function () {
+        // revisando cada fila
+        $(this).parent().parent().find('td').each(function (index) {
+            // la columna 1 contiene el Id
+            switch (index) {
+                case 0:
+                    $('#idEliminar').val($(this).text());
+                    break;
+            }
+        });
 
-    //     $('#modalEliminarServicios').modal('show');
-    // });
-    // // Ejecuta la funcion de eliminar servicios al dar click al confirmar
-    // $('#btnEliminarServiciosSi').click(function () {
-    //     var id = $("#idServiciosEliminar").val();
-    //     $.ajax({
-    //         type: "POST",
-    //         url: "/Servicios/Servicios?handler=Delete",
-    //         contentType: "application/json; charset=utf-8",
-    //         dataType: "html",
-    //         headers: {
-    //             "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
-    //         },
-    //         data: JSON.stringify(id),
-    //     })
-    //         .done(function (result) {
-    //             console.log(result);
-    //             alert(result);
-    //             location.reload();
-    //         })
-    //         .fail(function (error) {
-    //             console.log(error);
-    //             alert("Código: " + error.status + ", Error: " + error.responseText);
-    //         });
-    // });
+        $('#modalEliminar').modal('show');
+    });
+    // Ejecuta la funcion de eliminar servicios al dar click al confirmar
+    $('#btnEliminarSi').click(function () {
+        var id = $("#idEliminar").val();
+        $.ajax({
+            type: "POST",
+            url: "/Usuarios/Usuarios?handler=Delete",
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            headers: {
+                "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+            },
+            data: JSON.stringify(id),
+        })
+            .done(function (result) {
+                console.log(result);
+                alert(result);
+                location.reload();
+            })
+            .fail(function (error) {
+                console.log(error);
+                alert("Código: " + error.status + ", Error: " + error.responseText);
+            });
+    });
 });

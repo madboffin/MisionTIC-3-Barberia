@@ -43,11 +43,10 @@ namespace BaberManager.Frontend {
             var _usuarioAdicionado = _repositorioUsuario.Adicionar(_usuario);
             _usuario.Rol = rol;
             var usuarioAdicionado = _repositorioUsuario.Actualizar(_usuario);
-            if (usuarioAdicionado == null) {
-                return Content("Error al guardar el Usuario");
-            } else {
+            if (usuarioAdicionado != null) {
                 return Content("Guardado exitosamente");
             }
+            return Content("Error al guardar el Usuario");
         }
     }
 }
