@@ -3,10 +3,63 @@
 @{
     ViewData["Title"] = "Listado Barberos" ;
 
-<div class="v-container" >
+/*<div class="v-container" >
     <div id="titulo-listado">
 
     <h1 id="regis">Listado de Barberos</h1>
     </div>
 </div>
+*/
 }
+<div class="v-container">
+    <div class="container border-secondary rounded-25">
+        <div class="row">
+            <div class="col-md-2 col-sm-12"></div>
+            <div class="col-md-8 col-sm-12">
+                <h2>Listado de Barberos</h2>
+                <table class="table" id="tableBarberos">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Tipo Documento</th>
+                            <th>Documento</th>
+                            <th>Nombre</th>
+                            <th>Teléfono</th>
+                            <th>Correo</th>
+                            <th>UsuarioId</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var Barbero in Model.listaBarberos)
+                        {
+                            <tr>
+                                <td>@Barbero.Id</td>
+                                <td>@Barbero.TipoDocumento</td>
+                                <td>@Barbero.Documento</td>
+                                <td>@Barbero.Nombre</td>
+                                <td>@Barbero.Telefono</td>
+                                <td>@Barbero.Correo</td>
+                                <td>@Barbero.Usuario.Id</td>
+                                
+                                
+
+                                <td> <a asp-page="../Barbero/Barbero" asp-route-Id="@Barbero.Id" class="btn btn-primary" id="EditarBarbero" data-toggle="tooltip" data-pacement="top"
+                                title="Editar un Barbero">
+                                        <em class="far fa-edit"> Editar</em></a>
+                                    <a asp-page="../Barbero/Barberor" asp-route-Id="@Barbero.Id" class="btn btn-secondary" id="eliminarBarbero" data-toggle="tooltip"
+                                data-pacement="top" title="Eliminar un Barbero">
+                                        <em class="far fa-trash-alt"> Eliminar</em></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <form action="./BarberoCrear">
+                    <button type="submit" class="btn btn-primary">Crear Barbero</button>
+                </form>
+            </div>
+            <div class="col-md-2 col-sm-12"></div>
+        </div>
+
+    </div>
+</div>
