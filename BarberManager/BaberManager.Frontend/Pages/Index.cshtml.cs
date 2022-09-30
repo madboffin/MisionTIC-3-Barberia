@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Session;
 
 namespace BaberManager.Frontend.Pages;
 public class IndexModel : PageModel {
-    public string _sessionIdUser = "_idUser";
-    public string _sessionIdRol = "_idRol";
+    public const string _sessionIdUser = "_idUser";
+    public const string _sessionIdRol = "_idRol";
     private IHttpContextAccessor _httpContextAccessor;
     private readonly ILogger<IndexModel> _logger;
     public IndexModel(ILogger<IndexModel> logger, IHttpContextAccessor httpContextAccessor) {

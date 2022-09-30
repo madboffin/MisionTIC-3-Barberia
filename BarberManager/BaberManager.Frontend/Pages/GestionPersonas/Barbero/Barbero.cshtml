@@ -1,12 +1,119 @@
 ﻿@page
 @model BaberManager.Frontend.BarberoModel
 @{
-    ViewData["Title"] = "Listado Barberos" ;
-
-<div class="v-container" >
-    <div id="titulo-listado">
-
-    <h1 id="regis">Listado de Barberos</h1>
+    ViewData["Title"] = "Listado Barberos";
+}
+<div class="container border-secondary rounded-25">
+    <div class="row">
+        <div class="col-md-2 col-sm-12"></div>
+        <div class="col-md-8 col-sm-12">
+            <h2>Listado de barberos</h2>
+            <table class="table" id="tableData">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>TipoDocumento</th>
+                        <th>Documento</th>
+                        <th>Nombre</th>
+                        <th>Telefono</th>
+                        <th>Correo</th>
+                        <th>Barbero</th>
+                        <th>Editar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var barbero in Model.listaBarberos)
+                    {
+                        if(barbero.Usuario==null){continue;};
+                        <tr>
+                            <td>@barbero.Id</td>
+                            <td>@barbero.TipoDocumento</td>
+                            <td>@barbero.Documento</td>
+                            <td>@barbero.Nombre</td>
+                            <td>@barbero.Telefono</td>
+                            <td>@barbero.Correo</td>
+                            <td>Barbero</td>
+                            <td> <a class="btn btn-primary" id="btnEditar" data-toggle="tooltip" data-pacement="top"
+                                title="Editar un Barbero">
+                                    <i class="far fa-edit"> Editar </i></a>
+                                <a class="btn btn-secondary" id="btnEliminar" data-toggle="tooltip" data-pacement="top"
+                                title="Eliminar una persona">
+                                    <i class="far fa-trash-alt"> Eliminar </i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" id="btnModal"> Agregar Barbero </button>
+        </div>
+        <div class="col-md-2 col-sm-12"></div>
     </div>
 </div>
-}
+
+
+<!-- Modal Registrar-->
+<div class="modal" id="modalRegistrar" tabindex="-1" role="dialog">
+    <div class=" modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header"></div>
+                <h5 class="modal-title" id="modalRegistrarLabel">Registro de %</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Formulacion creacion -->
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal Editar-->
+<div class="modal" id="modalEditar" tabindex="-1" role="dialog">
+    <div class=" modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalRegistrarLabel">Edición de Barbero</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal Eliminar-->
+<div class="modal" id="modalEliminar" tabindex="-1" role="dialog">
+    <div class=" modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Eliminar Barbero</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p> ¿Desea eliminar el Barbero? </p>
+                <input type="hidden" name="idEliminar" id="idEliminar">
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnEliminarSi" class="btn btn-primary">Si</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>

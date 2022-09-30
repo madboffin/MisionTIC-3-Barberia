@@ -5,8 +5,8 @@ using Microsoft.AspNetCore.Session;
 
 namespace BaberManager.Frontend {
     public class LoginModel : PageModel {
-        public string _sessionIdUser = "_idUser";
-        public string _sessionIdRol = "_idRol";
+        public const string _sessionIdUser = "_idUser";
+        public const string _sessionIdRol = "_idRol";
         private IHttpContextAccessor _httpContextAccessor = default!;
         public LoginModel(IHttpContextAccessor httpContextAccessor){
             _httpContextAccessor = httpContextAccessor;
