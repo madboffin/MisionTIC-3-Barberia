@@ -2,23 +2,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using BarberManager.Dominio;
 
-namespace BarberManager.Persistencia
-{
-    public class RepositorioBarbero : ICRUD<Barbero>
-    {
+namespace BarberManager.Persistencia {
+    public class RepositorioBarbero : ICRUD<Barbero> {
         private readonly AppContexts appContexts;
-        public RepositorioBarbero(AppContexts appContexts)
-        {
+        public RepositorioBarbero(AppContexts appContexts) {
             this.appContexts = appContexts;
         }
 
-        public Barbero Actualizar(Barbero obj)
-        {
+        public Barbero Actualizar(Barbero obj) {
             var barberoEncontrado = Buscar(obj.Id);
-            if (barberoEncontrado != null)
-            {
+            if (barberoEncontrado != null) {
                 barberoEncontrado.Id = obj.Id;
                 barberoEncontrado.TipoDocumento = obj.TipoDocumento;
                 barberoEncontrado.Documento = obj.Documento;
@@ -31,25 +27,21 @@ namespace BarberManager.Persistencia
             return barberoEncontrado;
         }
 
-        public Barbero Adicionar(Barbero obj)
-        {
+        public Barbero Adicionar(Barbero obj) {
             var barbero = appContexts.Barberos.Add(obj);
             appContexts.SaveChanges();
             return barbero.Entity;
         }
 
-        public Barbero Buscar(int Id)
-        {
+        public Barbero Buscar(int Id) {
             return appContexts.Barberos.FirstOrDefault(b => b.Id == Id);
         }
 
-        public IEnumerable<Barbero> Consultar()
-        {
-            return appContexts.Barberos;
+        public IEnumerable<Barbero> Consultar() {
+            return appContexts.Barberos.Include(b=>b.Usuario);
         }
 
-        public int Eliminar(int Id)
-        {
+        public int Eliminar(int Id) {
             int result = 0;
             var barberoEncontrado = Buscar(Id);
             if (barberoEncontrado == null)

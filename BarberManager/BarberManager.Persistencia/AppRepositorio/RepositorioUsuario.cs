@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using BarberManager.Dominio;
 
 namespace BarberManager.Persistencia
@@ -44,7 +45,7 @@ namespace BarberManager.Persistencia
 
         public IEnumerable<Usuario> Consultar()
         {
-            return appContexts.Usuarios;
+            return appContexts.Usuarios.Include(p=>p.Rol);
         }
 
         public int Eliminar(int Id)

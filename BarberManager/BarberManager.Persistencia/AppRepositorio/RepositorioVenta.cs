@@ -2,23 +2,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using BarberManager.Dominio;
 
-namespace BarberManager.Persistencia
-{
-    public class RepositorioVenta :ICRUD<Venta>
-    {
+namespace BarberManager.Persistencia {
+    public class RepositorioVenta :ICRUD<Venta> {
         private readonly AppContexts appContexts;
-        public RepositorioVenta(AppContexts appContexts)
-        {
+        public RepositorioVenta(AppContexts appContexts) {
             this.appContexts = appContexts;
         }
 
-        public Venta Actualizar(Venta obj)
-        {
+        public Venta Actualizar(Venta obj) {
             var ventaEncontrada = Buscar(obj.Id);
-            if (ventaEncontrada != null)
-            {
+            if (ventaEncontrada != null) {
                 ventaEncontrada.Id = obj.Id;
                 ventaEncontrada.Valor = obj.Valor;
                 ventaEncontrada.Fecha = obj.Fecha;
@@ -29,25 +25,23 @@ namespace BarberManager.Persistencia
             return ventaEncontrada;
         }
 
-        public Venta Adicionar(Venta obj)
-        {
+        public Venta Adicionar(Venta obj) {
             var venta = appContexts.Ventas.Add(obj);
             appContexts.SaveChanges();
             return venta.Entity;
         }
 
-        public Venta Buscar(int Id)
-        {
+        public Venta Buscar(int Id) {
             return appContexts.Ventas.FirstOrDefault(v => v.Id == Id);
         }
 
-        public IEnumerable<Venta> Consultar()
-        {
-            return appContexts.Ventas;
+        public IEnumerable<Venta> Consultar() {
+            return appContexts.Ventas
+                .Include(v=>v.Barbero)
+                .Include(v=>v.Usuario);
         }
 
-        public int Eliminar(int Id)
-        {
+        public int Eliminar(int Id) {
             int result = 0;
             var ventaEncontrada = Buscar(Id);
             if (ventaEncontrada == null)
