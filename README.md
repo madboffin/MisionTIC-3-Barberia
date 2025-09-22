@@ -1,19 +1,36 @@
-# Aplicacion para el manejo de negocio de barberia
-Esta aplicación web facilita la administración de negocios de barbería. 
+# Negocio de barbería
 
-Características:
-* Permite Crear usuarios de la aplicacion.
-* Uso de login para usuarios de administración y  recepción
-* Permite la creacion de Barberos para asignar servicios.
-* Permite asignar valores a cada servicio.
-* Entrega reportes en periodos de tiempo de los servicios y sus valores.
+Esta aplicación web facilita la administración integral de negocios de barbería, permitiendo gestionar usuarios, barberos, servicios y reportes de manera eficiente. Fue desarrollada con .NET 6.0 como parte del programa de formación Misión Tic (Ciclo 3).
+
+## Características principales
+* Permite crear usuarios de la aplicación (administración y recepción).
+* Login seguro para usuarios de administración y recepción.
+* Gestión de barberos y asignación de servicios.
+* Asignación de valores a cada servicio.
+* Generación de reportes periódicos de servicios y sus valores.
 
 ![image info](./imagenes/ejemplo1.jpg "Ejemplo de listado de servicios")
 
-Para correr la applicación basta con instalar .NET 6.0, ubicarse en la carpeta BarberManager > Fontend y usar el comando `dotnet run`.
+## ¿Cómo ejecutar la aplicación?
 
-Documentacion del proceso de desarrollo usando metodología SCRUM:
+1. Instalar [.NET 6.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) en tu equipo.
+2. Abrir una terminal y navegar a la carpeta `BarberManager/BaberManager.Frontend`.
+3. Ejecutar el siguiente comando:
+   
+   ```bash
+   dotnet run
+   ```
+4. Acceder a la aplicación desde el navegador en la dirección que se muestra en la terminal.
+
+> **Nota:** Para restaurar los paquetes o compilar por primera vez,  ejecutar previamente:
+> ```bash
+> dotnet restore
+> dotnet build
+> ```
+
+## Documentación
+
+Documentación del proceso de desarrollo usando metodología SCRUM:
 * https://valley-ballcap-baa.notion.site/BARBER_MANAGER-076be2a7e7ab4417a254974cebd5dbff
 
 ---
-Desarrollado con .NET 6.0
