@@ -9,8 +9,6 @@ Esta aplicación web facilita la administración integral de negocios de barber�
 * Asignación de valores a cada servicio.
 * Generación de reportes periódicos de servicios y sus valores.
 
-![image info](./imagenes/ejemplo1.jpg "Ejemplo de listado de servicios")
-
 ## ¿Cómo ejecutar la aplicación?
 
 1. Instalar [.NET 6.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) en tu equipo.
